@@ -1,0 +1,6 @@
+# Docker secrets
+# odoo_pg_pass // hehe lagi mager jadi 
+
+# Odoo data volumes
+addons/
+config/
