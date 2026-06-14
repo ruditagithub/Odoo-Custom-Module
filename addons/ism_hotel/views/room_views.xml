@@ -8,7 +8,6 @@
                 <field name="name"/>
                 <field name="room_type"/>
                 <field name="state" widget="badge" decoration-success="state == 'available'" decoration-warning="state == 'occupied'" decoration-danger="state == 'maintenance'" decoration-info="state == 'booked'" />
-                <field name="housekeeping_state" widget="badge" decoration-success="housekeeping_state == 'clean'" decoration-warning="housekeeping_state == 'cleaning'" decoration-danger="housekeeping_state == 'dirty'"/>
             </tree>
         </field>
     </record>
@@ -23,7 +22,6 @@
                 <field name="name"/>
                 <field name="room_type"/>
                 <field name="state"/>
-                <field name="housekeeping_state"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_card mb-3">
@@ -33,9 +31,8 @@
                                         <field name="name"/>
                                     </strong>
                                 </div>
-                                <div class="oe_kanban_subtitle d-flex flex-column align-items-end">
+                                <div class="oe_kanban_subtitle">
                                     <field name="state" widget="badge" decoration-success="state == 'available'" decoration-info="state == 'booked'" decoration-warning="state == 'occupied'" decoration-danger="state == 'maintenance'" title="Current status"/>
-                                    <field name="housekeeping_state" class="mt-1" widget="badge" decoration-success="housekeeping_state == 'clean'" decoration-warning="housekeeping_state == 'cleaning'" decoration-danger="housekeeping_state == 'dirty'" title="Housekeeping status"/>
                                 </div>
                             </div>
                             <hr/>
@@ -90,22 +87,14 @@
                 </header>
                 <sheet>
                     <div name="button_box" class="oe_button_box">
-                        <button name="action_view_reservations" class="oe_stat_button" icon="fa-money" type="object">
+                        <button name="action_view_reservations" class="oe_stat_button" icon="fa-money" type="object" string="Bookings">
                             <field name="booking_count" widget="statinfo" string="Bookings"/>
-                        </button>
-                        <button name="action_view_housekeeping_tasks" class="oe_stat_button" icon="fa-bed" type="object">
-                            <field name="housekeeping_count" widget="statinfo" string="Housekeeping"/>
                         </button>
                     </div>
                     <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="room_type"/>
-                        </group>
-                        <group>
-                            <field name="state" readonly="1" widget="badge" decoration-success="state == 'available'" decoration-info="state == 'booked'" decoration-warning="state == 'occupied'" decoration-danger="state == 'maintenance'"/>
-                            <field name="housekeeping_state" widget="radio" options="{'horizontal': true}"/>
-                        </group>
+                        <field name="name"/>
+                        <field name="room_type"/>
+                        <field name="state" invisible="1"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">

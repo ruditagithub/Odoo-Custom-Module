@@ -4,4 +4,3 @@ ism_hotel.access_hotel_amenity_line,access_hotel_amenity_line,ism_hotel.model_ho
 ism_hotel.access_hotel_room,access_hotel_room,ism_hotel.model_hotel_room,base.group_user,1,1,1,1
 ism_hotel.access_hotel_book_history,access_hotel_book_history,ism_hotel.model_hotel_book_history,base.group_user,1,1,1,1
 ism_hotel.access_hotel_book_history_line,access_hotel_book_history_line,ism_hotel.model_hotel_book_history_line,base.group_user,1,1,1,1
-ism_hotel.access_hotel_housekeeping,access_hotel_housekeeping,ism_hotel.model_hotel_housekeeping,base.group_user,1,1,1,1

@@ -101,11 +101,6 @@ class HotelBookHistory(models.Model):
             if date.today() < record.check_in:
                 raise ValidationError("It's not time to check in yet")  
             
-            dirty_rooms = record.room_ids.filtered(lambda r: r.housekeeping_state != 'clean')
-            if dirty_rooms:
-                room_names = ", ".join(dirty_rooms.mapped('name'))
-                raise ValidationError(_("Cannot check-in. The following rooms are still dirty/being cleaned: %s") % room_names)
-
             record.state = 'checked_in'
         
             # change state of room
@@ -124,14 +119,6 @@ class HotelBookHistory(models.Model):
             # change state of room
             for room in record.room_ids:
                 room.state = 'available'
-                room.housekeeping_state = 'dirty'
-                self.env['hotel.housekeeping'].create({
-                    'room_id': room.id,
-                    'cleaning_type': 'checkout',
-                    'priority': '2',
-                    'state': 'draft',
-                    'notes': _("Automatically generated task after guest checkout from reservation: %s") % record.name
-                })
 
     # action button cancel 
     def action_cancel(self):

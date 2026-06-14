@@ -39,18 +39,4 @@
         action="action_hotel_book_history"
         sequence="5"
     />
-
-    <!-- Housekeeping Menus -->
-    <menuitem id="menu_hotel_housekeeping_root"
-        parent="menu_hotel_root"
-        name="Housekeeping"
-        sequence="6"
-    />
-
-    <menuitem id="menu_hotel_housekeeping_tasks"
-        parent="menu_hotel_housekeeping_root"
-        name="Tasks"
-        action="action_hotel_housekeeping"
-        sequence="1"
-    />
 </odoo>

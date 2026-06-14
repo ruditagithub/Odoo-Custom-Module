@@ -18,7 +18,6 @@
   'sequence': 0,
   'data': [
     'data/sequence.xml',
-    'data/housekeeping_sequence.xml',
     'data/hotel_room_data.xml',
     
     'security/ir.model.access.csv',
@@ -27,7 +26,6 @@
     'views/product_views.xml',
     'views/amenity_views.xml',
     'views/book_history_views.xml',
-    'views/housekeeping_views.xml',
     'views/dashboard_views.xml',
     'views/sale_order_views.xml',
     'views/account_move_views.xml',
